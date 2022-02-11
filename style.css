@@ -10,6 +10,12 @@ body {
     margin: 0;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 #calculator {
     background-color: #7A542E;
     height: 70%;
@@ -20,11 +26,41 @@ body {
 
 
 #top {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
     background-color: brown;
     flex: 1 1 0%;
+    padding: 3%;
+}
+
+#screen {
+    width: 100%;
+    height: 50%;
+    background-color: antiquewhite;
+    text-align: end;
+    font-size: xx-large;
 }
 
 #controls {
     background-color: aquamarine;
-    flex: 2 1 0%
+    flex: 2 1 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.btn-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: stretch;
+    flex: 1 0 0%;
+}
+
+.btn {
+    border: 1px solid black;
+    flex: 1 0 0%;
+    text-align: center;
+    font-size: xx-large;
 }
