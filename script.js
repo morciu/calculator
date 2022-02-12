@@ -6,6 +6,8 @@ const nr_buttons = document.querySelectorAll(".nr");
 
 // Get all operators
 const operators = document.querySelectorAll(".operator");
+// Operator Array
+const operatorArray = ['+', '-', '*', '/'];
 
 // Equals Button
 const equals = document.querySelector('#equals');
@@ -64,10 +66,16 @@ equals.addEventListener('click', () => {
 
 
 function addOperator(operator) {
+    a, b = getNumbers();
     if (screen.innerText != '0' && (!operatorBlock)) {
-        screen.innerText += ` ${operator}`;
-        operatorBlock = true;
-        a, b = getNumbers();
+        if (checkIfOperator(screen.innerText)) {
+            screen.innerText = `${calculate(currentOperator)} ${operator}`
+        }
+        else {
+            screen.innerText += ` ${operator}`;
+            operatorBlock = true;
+        }
+        
     }
 
     currentOperator = operator;
@@ -96,4 +104,13 @@ function getNumbers() {
     b = (Number.isNaN(b)) ? 0 : b;
 
     return a, b;
+}
+
+function checkIfOperator(string) {
+    for (operator in operatorArray) {
+        if (string.includes(operatorArray[operator])) {
+            return true;
+        }
+    }
+    return false;
 }
