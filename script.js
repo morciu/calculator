@@ -4,6 +4,9 @@ const screen = document.querySelector("#screen");
 // Get all number buttons
 const nr_buttons = document.querySelectorAll(".nr");
 
+// Get the dot button for floats
+const floatDot = document.querySelector("#floatDot");
+
 // Get all operators
 const operators = document.querySelectorAll(".operator");
 // Operator Array
@@ -28,6 +31,14 @@ nr_buttons.forEach(button => {
     button.addEventListener('click', function() {
         printOnDisplay(button);
     });
+});
+
+// Float dot clicks
+floatDot.addEventListener('click', () => {
+    // Check if the number already has a dot
+    if (!screen.innerText.includes('.')) {
+        screen.innerText += ".";
+    }
 });
 
 // Operator clicks
@@ -97,8 +108,8 @@ function calculate(operator) {
 }
 
 function getNumbers() {
-    a = parseInt(screen.innerText.split(` ${currentOperator}`)[0]);
-    b = parseInt(screen.innerText.split(` ${currentOperator}`)[1]);
+    a = parseFloat(screen.innerText.split(` ${currentOperator}`)[0]);
+    b = parseFloat(screen.innerText.split(` ${currentOperator}`)[1]);
 
     a = (Number.isNaN(a)) ? 0 : a;
     b = (Number.isNaN(b)) ? 0 : b;
