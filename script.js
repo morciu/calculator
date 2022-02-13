@@ -103,7 +103,12 @@ function calculate(operator) {
         return a * b;
     }
     else if (operator == '/') {
-        return a / b;
+        if (a/b == Infinity) {
+            return 0;
+        }
+        else {
+            return a / b;
+        }
     }
 }
 
