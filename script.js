@@ -12,8 +12,8 @@ const operators = document.querySelectorAll(".operator");
 // Operator Array
 const operatorArray = ['+', '-', '*', '/'];
 
-// Equals Button
-const equals = document.querySelector('#equals');
+// Equal Button
+const equal = document.querySelector('#equals');
 
 // Get Clear button
 const clearBtn = document.querySelector('#clearBtn');
@@ -32,7 +32,7 @@ let currentOperator;
 // Number clicks
 nr_buttons.forEach(button => {
     button.addEventListener('click', function() {
-        printOnDisplay(button);
+        printOnDisplay(button.dataset.value);
     });
 });
 
@@ -57,10 +57,10 @@ clearBtn.addEventListener('click', () => {clear()});
 // Function to print nr on calculator display
 function printOnDisplay(btn) {
     if (screen.innerText === '0') {
-        screen.innerText = btn.dataset.value;
+        screen.innerText = btn;
     }
     else {
-        screen.innerText += btn.dataset.value;
+        screen.innerText += btn;
     }
     operatorBlock = false;
 }
@@ -74,14 +74,13 @@ function clear() {
 
 // Edit click
 editBtn.addEventListener('click', () => {
-    screen.innerText = screen.innerText.substring(0, screen.innerText.length - 1);
+    editInput()
 });
 
 // Equals click
-equals.addEventListener('click', () => {
-    a, b = getNumbers();
-    screen.innerText = calculate(currentOperator);
-})
+equal.addEventListener('click', () => {
+    equals();
+});
 
 
 function addOperator(operator) {
@@ -138,3 +137,31 @@ function checkIfOperator(string) {
     }
     return false;
 }
+
+function editInput() {
+    screen.innerText = screen.innerText.substring(0, screen.innerText.length - 1);
+}
+
+function equals() {
+    a, b = getNumbers();
+    screen.innerText = calculate(currentOperator);
+}
+
+// Keyboard Shortcuts
+document.addEventListener('keydown', (event) => {
+    if (!isNaN(event.key.charAt(event.key.length - 1))) {
+        printOnDisplay(event.key.charAt(event.key.length - 1));
+    }
+    else if (operatorArray.includes(event.key)) {
+        addOperator(event.key);
+    }
+    else if (event.key == "Backspace") {
+        editInput()
+    }
+    else if (event.key == "Enter") {
+        equals();
+    }
+    else if (event.key == "Escape") {
+        clear();
+    }
+});
