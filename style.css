@@ -22,7 +22,7 @@ ul {
     width: 800px;
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
+    border-radius: 24px;
 }
 
 
@@ -46,6 +46,7 @@ ul {
     align-items: center;
     border: 1px solid #525250;
     box-shadow: 0px 0px 10px 5px inset #ac8a4f;
+    border-radius: 4px;
 
 }
 
@@ -93,5 +94,6 @@ ul {
 
 #equals {
     background-color: #4e8278;
+    color: #525250;
 }
 

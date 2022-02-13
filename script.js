@@ -18,9 +18,6 @@ const equals = document.querySelector('#equals');
 // Get Clear button
 const clearBtn = document.querySelector('#clearBtn');
 
-// Get clear recent button
-const clearRecentBtn = document.querySelector("#clearRecentBtn");
-
 // Flag to stop adding an operator after another operator
 let operatorBlock = false;
 
@@ -71,11 +68,6 @@ function clear() {
     b = 0;
     screen.innerText = '0';
 }
-
-// Clear Recent
-clearRecentBtn.addEventListener('click', () => {
-    console.log("CE");
-})
 
 // Equals click
 equals.addEventListener('click', () => {
