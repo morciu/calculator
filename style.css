@@ -45,7 +45,7 @@ ul {
     justify-content: flex-end;
     align-items: center;
     border: 1px solid #525250;
-    box-shadow: 0px 0px 10px 5px inset #525250;
+    box-shadow: 0px 0px 10px 5px inset #ac8a4f;
 
 }
 
@@ -77,7 +77,7 @@ ul {
     align-items: center;
     margin: 4px;
     cursor: default;
-    border-radius: 15%;
+    border-radius: 8px;
 }
 
 .btn:hover,
